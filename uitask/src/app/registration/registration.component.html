@@ -1,1 +1,128 @@
-<p>registration works!</p>
+<div class="row m-5"><div class="col-lg-3"></div>
+  <div class="col-6 col-lg-6 col-sm-6 col-xs-6 col-lx-6 col-md-6 ">
+    <div class="card">
+      <div class="card-header text-center"><h3><b>Registration</b></h3></div>
+      <div class="card-body">
+        <div class="form-group">
+          <form [formGroup]="AddResourcesForm" (ngSubmit)="onSubmit(AddResourcesForm.value)">
+
+            <div class="row">
+              <label class="col-lg-4 mt-2">Student id:</label>
+              <div class="form-group col-lg-8">
+                <input type="number" placeholder="student id" formControlName="studentId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.studentId.errors }" />
+                <div *ngIf="submitted && !!f.studentId.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.studentId.errors.required">* Student id is required</div>
+                 </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="col-lg-4 mt-2">Student name:</label>
+              <div class="form-group col-lg-8">
+                <input type="text" placeholder="student name" formControlName="studentName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.studentName.errors }" />
+                <div *ngIf="submitted && !!f.studentName.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.studentName.errors.required">* Student name is required</div>
+                 </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <label class="col-lg-4 mt-2">Email:</label>
+              <div class="form-group col-lg-8">
+                <input type="text" placeholder="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && !!f.email.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.email.errors.required">* Email is required</div>
+                  <div *ngIf="!!f.email.errors.pattern"><p>* Email must be vaild</p></div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <label class="col-lg-4 mt-2">Mobile:</label>
+              <div class="form-group col-lg-8">
+                <input type="number" placeholder="mobile" formControlName="mobile" class="form-control"/>
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="col-lg-4 mt-2">Class:</label>
+              <div class="form-group col-lg-8">
+                <input type="number" placeholder="class" formControlName="class" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.class.errors }" />
+                <div *ngIf="submitted && !!f.class.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.class.errors.required">* Class is required</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+            <label class="col-lg-4 mt-2">Enrollment Year:</label>
+              <div class="form-group col-lg-8">
+                <input type="number" placeholder="enrollment year" formControlName="enrollYear" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.enrollYear.errors }" />
+                <div *ngIf="submitted && !!f.enrollYear.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.enrollYear.errors.required">* Enrollment Year is required</div>
+                  <div *ngIf="!!f.enrollYear.errors.minlength"><p>* Enrollment Year must be at least 4 digits</p></div>
+                  <div *ngIf="!!f.enrollYear.errors.maxlength"><p>* Enrollment Year must be at least 4 digits</p></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="col-lg-4 mt-2">City:</label>
+              <div class="form-group col-lg-8">
+                <input type="text" placeholder="city" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                <div *ngIf="submitted && !!f.city.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.city.errors.required">* City is required</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+            <label class="col-lg-4 mt-2">Country:</label>
+              <div class="form-group col-lg-8">
+                <input type="text" placeholder="country" formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" />
+                <div *ngIf="submitted && !!f.country.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.country.errors.required">* Country is required</div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <label class="col-lg-4 mt-2">Password:</label>
+              <div class="form-group col-lg-8">
+                <input type="text" placeholder="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.password.errors.required">* Password is required</div>
+                  <div *ngIf="!!f.password.errors.minlength"><p>* Password must be at least 6 digits</p></div>
+                  <div *ngIf="!!f.password.errors.maxlength"><p>* Password must be at least 6 digits</p></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="col-lg-4 mt-2">Confirm Password:</label>
+              <div class="form-group col-lg-8">
+                <input type="text" placeholder="confirm password" formControlName="cpassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cpassword.errors }" />
+                <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.cpassword.errors.required">* Confirm Password is required</div>
+                  <div *ngIf="!!f.cpassword.errors.minlength"><p>* Confirm Password must be at least 6 digits</p></div>
+                  <div *ngIf="!!f.cpassword.errors.maxlength"><p>* Confirm Password must be at least 6 digits</p></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group row">
+                 <button class="btn btn-light ml-5 mr-5   mt-3">Add Resourse</button>
+                 <button class="btn btn-light ml-5  mt-3">Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+   </div>
+</div>
+
